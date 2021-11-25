@@ -30,6 +30,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function checkLetter(button) {
+    const phraseLetters = phrase.children();
+    let matchIsFound = false;
+
+    for (const li of phraseLetters) {
+      if (li.textContent === button) {
+        li.className += ' show';
+        matchIsFound = true;
+      }
+    }
+    if (!matchIsFound) {
+      return null;
+    }
+  }
+
   const phraseArray = getRandomPhraseAsArray(phrases);
   addPhraseToDisplay(phraseArray);
 
