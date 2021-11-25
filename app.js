@@ -12,6 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
     'The best defence is a good offence'
   ];
 
+  function getRandomPhraseAsArray(arr) {
+    const index = Math.floor(Math.random() * 6);
+    const randomPhrase = arr[index];
+    return randomPhrase.split();
+  }
+
+  console.log(getRandomPhraseAsArray(phrases));
+
   gameStartBtn.addEventListener('click', () => {
     const overlay = document.querySelector('#overlay');
     overlay.style.display = 'none';
