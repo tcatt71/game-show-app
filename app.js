@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         matchIsFound = true;
       }
     }
+
     if (!matchIsFound) {
       return null;
     }
