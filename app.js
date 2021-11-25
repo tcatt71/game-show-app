@@ -13,12 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   function getRandomPhraseAsArray(arr) {
-    const index = Math.floor(Math.random() * 6);
+    const index = Math.floor(Math.random() * arr.length);
     const randomPhrase = arr[index];
-    return randomPhrase.split();
+    const arrayOfPhraseCharacters = randomPhrase.split('');
+    return arrayOfPhraseCharacters;
   }
-
-  console.log(getRandomPhraseAsArray(phrases));
 
   gameStartBtn.addEventListener('click', () => {
     const overlay = document.querySelector('#overlay');
