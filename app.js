@@ -19,6 +19,20 @@ document.addEventListener('DOMContentLoaded', () => {
     return arrayOfPhraseCharacters;
   }
 
+  function addPhraseToDisplay(arr) {
+    for (const char of arr) {
+      const listItem = document.createElement('li');
+      if (!char === '') {
+        listItem.className = 'letter';
+      }
+      listItem.textContent = char;
+      phrase.firstElementChild.appendChild(listItem);
+    }
+  }
+
+  const phraseArray = getRandomPhraseAsArray(phrases);
+  addPhraseToDisplay(phraseArray);
+
   gameStartBtn.addEventListener('click', () => {
     const overlay = document.querySelector('#overlay');
     overlay.style.display = 'none';
