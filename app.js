@@ -4,6 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const gameStartBtn = document.querySelector('.btn__reset');
   let missed = 0;
 
+  const phrases = [
+    'Hot on the heels',
+    'A bird in the hand is worth two in the bush',
+    'The darkest hour is just before the dawn',
+    'Let sleeping dogs lie',
+    'The best defence is a good offence'
+  ];
+
   gameStartBtn.addEventListener('click', () => {
     const overlay = document.querySelector('#overlay');
     overlay.style.display = 'none';
