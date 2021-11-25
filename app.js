@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const qwerty = document.querySelector('#qwerty');
   const phrase = document.querySelector('#phrase');
-  const gameStartBtn = document.querySelector('.btn__reset');
+  const startGameBtn = document.querySelector('.btn__reset');
   let missed = 0;
 
   const phrases = [
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const phraseArray = getRandomPhraseAsArray(phrases);
   addPhraseToDisplay(phraseArray);
 
-  gameStartBtn.addEventListener('click', () => {
+  startGameBtn.addEventListener('click', () => {
     const overlay = document.querySelector('#overlay');
     overlay.style.display = 'none';
   });
