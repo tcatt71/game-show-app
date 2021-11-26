@@ -33,17 +33,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function checkLetter(button) {
-    const phraseLetters = phrase.children();
+    const phraseLetters = phrase.firstElementChild.children;
     let matchIsFound = false;
 
     for (const li of phraseLetters) {
-      if (li.textContent === button) {
+      if (li.textContent === button.textContent) {
         li.className += ' show';
         matchIsFound = true;
       }
     }
 
-    if (!matchIsFound) {
+    if (matchIsFound) {
+      return button.textContent;
+    } else {
       return null;
     }
   }
