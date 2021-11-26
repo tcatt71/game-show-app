@@ -5,11 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
   let missed = 0;
 
   const phrases = [
-    'Hot on the heels',
-    'A bird in the hand is worth two in the bush',
-    'The darkest hour is just before the dawn',
-    'Let sleeping dogs lie',
-    'The best defence is a good offence'
+    'hot on the heels',
+    'a bird in the hand is worth two in the bush',
+    'the darkest hour is just before the dawn',
+    'let sleeping dogs lie',
+    'the best defence is a good offence'
   ];
 
   function getRandomPhraseAsArray(arr) {
