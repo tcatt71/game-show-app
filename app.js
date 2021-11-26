@@ -22,7 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function addPhraseToDisplay(arr) {
     for (const char of arr) {
       const listItem = document.createElement('li');
-      if (!char === '') {
+      if (char === ' ') {
+        listItem.className = 'space';
+      } else {
         listItem.className = 'letter';
       }
       listItem.textContent = char;
