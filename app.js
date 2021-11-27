@@ -52,6 +52,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const phraseArray = getRandomPhraseAsArray(phrases);
   addPhraseToDisplay(phraseArray);
+  qwerty.addEventListener('click', (e) => {
+    const scoreboardSection = document.querySelector('#scoreboard');
+    const hearts = scoreboardSection.firstElementChild.children;
+
+    if (e.target.tagName === 'BUTTON') {
+      e.target.className = 'chosen';
+      const letterFound = checkLetter(e.target);
+    }
+  });
 
   startGameBtn.addEventListener('click', () => {
     const overlay = document.querySelector('#overlay');
