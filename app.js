@@ -59,6 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target.tagName === 'BUTTON') {
       e.target.className = 'chosen';
       const letterFound = checkLetter(e.target);
+      if (letterFound === null) {
+        hearts[missed].firstElementChild.setAttribute('src', 'images/lostHeart.png');
+        missed++;
+      }
     }
   });
 
