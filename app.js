@@ -64,7 +64,27 @@ document.addEventListener('DOMContentLoaded', () => {
         missed++;
       }
     }
+    checkWin();
   });
+
+  function checkWin() {
+    const phraseLetters = document.querySelectorAll('.letter');
+    const correctLetters = document.querySelectorAll('.show');
+    const overlay = document.querySelector('#overlay');
+    const p = document.createElement('p');
+
+    if (phraseLetters.length === correctLetters.length) {
+      overlay.style.display = '';
+      overlay.className = 'win';
+      p.textContent = 'You Win!';
+      overlay.appendChild(p);
+    } else if (missed >= 5) {
+      overlay.style.display = '';
+      overlay.className = 'lose';
+      p.textContent = 'You Lose!';
+      overlay.appendChild(p);
+    }
+  }
 
   startGameBtn.addEventListener('click', () => {
     const overlay = document.querySelector('#overlay');
