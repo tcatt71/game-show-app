@@ -71,18 +71,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const phraseLetters = document.querySelectorAll('.letter');
     const correctLetters = document.querySelectorAll('.show');
     const overlay = document.querySelector('#overlay');
-    const p = document.createElement('p');
 
     if (phraseLetters.length === correctLetters.length) {
-      overlay.style.display = '';
       overlay.className = 'win';
-      p.textContent = 'You Win!';
-      overlay.appendChild(p);
-    } else if (missed >= 5) {
+      overlay.firstElementChild.textContent = 'You Win!';
       overlay.style.display = '';
+      overlay.lastElementChild.style.display = 'none';
+    } else if (missed >= 5) {
       overlay.className = 'lose';
-      p.textContent = 'You Lose!';
-      overlay.appendChild(p);
+      overlay.firstElementChild.textContent = 'You Lose!';
+      overlay.style.display = '';
+      overlay.lastElementChild.style.display = 'none';
     }
   }
 
