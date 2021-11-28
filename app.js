@@ -53,9 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
   qwerty.addEventListener('click', (e) => {
     const scoreboardSection = document.querySelector('#scoreboard');
     const hearts = scoreboardSection.firstElementChild.children;
+    const key = e.target;
 
-    if (e.target.tagName === 'BUTTON') {
-      e.target.className = 'chosen';
+    if (key.tagName === 'BUTTON') {
+      key.className = 'chosen';
+      key.setAttribute('disabled', '');
       const letterFound = checkLetter(e.target);
       if (letterFound === null) {
         hearts[missed].firstElementChild.setAttribute('src', 'images/lostHeart.png');
