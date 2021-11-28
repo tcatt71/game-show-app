@@ -69,25 +69,50 @@ document.addEventListener('DOMContentLoaded', () => {
     const phraseLetters = document.querySelectorAll('.letter');
     const correctLetters = document.querySelectorAll('.show');
     const overlay = document.querySelector('#overlay');
+    const p = document.createElement('p');
 
     if (phraseLetters.length === correctLetters.length) {
       overlay.className = 'win';
-      overlay.firstElementChild.textContent = 'You Win!';
       overlay.style.display = '';
-      overlay.lastElementChild.style.display = 'none';
+      p.textContent = 'You Win!';
+      overlay.appendChild(p);
+      startGameBtn.textContent = 'Play Again';
     } else if (missed >= 5) {
       overlay.className = 'lose';
-      overlay.firstElementChild.textContent = 'You Lose!';
       overlay.style.display = '';
-      overlay.lastElementChild.style.display = 'none';
+      p.textContent = 'You Lose!';
+      overlay.appendChild(p);
+      startGameBtn.textContent = 'Try Again';
     }
   }
 
   startGameBtn.addEventListener('click', () => {
     const overlay = document.querySelector('#overlay');
+    const p = overlay.lastElementChild;
+    const ul = document.querySelector('ul');
     const phraseArray = getRandomPhraseAsArray(phrases);
 
+    ul.innerHTML = '';
     addPhraseToDisplay(phraseArray);
     overlay.style.display = 'none';
+
+    if (overlay.className === 'start') {
+      overlay.style.display = 'none';
+    } else {
+      const chosenLetterList = document.querySelectorAll('.chosen');
+      const lostHeartList = document.querySelectorAll('[src="images/lostHeart.png"]');
+
+      missed = 0;
+      overlay.style.display = 'none';
+      overlay.removeChild(p);
+
+      for (const button of chosenLetterList) {
+        button.className = '';
+      }
+
+      for (const heart of lostHeartList) {
+        heart.setAttribute('src', 'images/liveHeart.png')
+      }
+    }
   });
 });

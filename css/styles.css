@@ -29,6 +29,10 @@ body {
   height: 100vh;
 }
 
+p {
+  font-size: 2rem;
+}
+
 li,
 ol,
 ul {
