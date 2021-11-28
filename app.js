@@ -53,12 +53,13 @@ document.addEventListener('DOMContentLoaded', () => {
   qwerty.addEventListener('click', (e) => {
     const scoreboardSection = document.querySelector('#scoreboard');
     const hearts = scoreboardSection.firstElementChild.children;
-    const key = e.target;
 
-    if (key.tagName === 'BUTTON') {
+    if (e.target.tagName === 'BUTTON') {
+      const key = e.target;
+      const letterFound = checkLetter(key);
+
       key.className = 'chosen';
       key.setAttribute('disabled', '');
-      const letterFound = checkLetter(e.target);
       if (letterFound === null) {
         hearts[missed].firstElementChild.setAttribute('src', 'images/lostHeart.png');
         missed++;
@@ -103,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       const chosenLetterList = document.querySelectorAll('.chosen');
       const lostHeartList = document.querySelectorAll('[src="images/lostHeart.png"]');
+      const keyboardKeysList = document.querySelectorAll('#qwerty button');
 
       missed = 0;
       overlay.style.display = 'none';
@@ -114,6 +116,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       for (const heart of lostHeartList) {
         heart.setAttribute('src', 'images/liveHeart.png')
+      }
+
+      for (const keyboardKey of keyboardKeysList) {
+        keyboardKey.removeAttribute('disabled');
       }
     }
   });
