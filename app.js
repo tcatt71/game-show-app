@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     for (const li of phraseLetters) {
       if (li.textContent === button.textContent) {
         li.className += ' show';
+        li.style.transition = 'all 0.5s ease-in-out';
         matchIsFound = true;
       }
     }
